@@ -1,15 +1,24 @@
 {
-  "name": "twitter-bot",
+  "name": "jade-bot",
   "version": "1.0.0",
-  "description": "twitter bot bootstrap",
+  "description": "twitter bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Jade Thornton",
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raindeer44/jade-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Raindeer44/jade-bot/issues"
+  },
+  "homepage": "https://github.com/Raindeer44/jade-bot#readme"
 }
