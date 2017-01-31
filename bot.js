@@ -15,8 +15,8 @@ var resultType = uniqueRandArray(strings.resultType);
 var responseString = uniqueRandArray(strings.responseString);
 
 // main bot function
-retweet();
-favoriteTweet();
+retweet;
+favoriteTweet;
 
 setInterval(retweet, 600000 * retweetFrequencyInMinutes);
 setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes);
