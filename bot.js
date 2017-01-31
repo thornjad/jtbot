@@ -2,7 +2,7 @@
 var twit = require('twit')
 var uniqueRandArray = require('unique-random-array')
 var config = require('./config')
-var strings = require('./helpers/strings')
+var strings = require('./strings')
 
 var Twitter = new twit(config)
 
