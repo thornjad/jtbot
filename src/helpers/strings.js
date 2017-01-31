@@ -17,6 +17,14 @@ module.exports = {
         'clear night syntax',
         'clear-night-syntax'
     ],
+    blockedStrings: [
+        'porn',
+        'sex',
+        'nude',
+        'nudity',
+        'fuck',
+        'fucking'
+    ],
     resultType: [
         'mixed',
         'recent',

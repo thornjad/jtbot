@@ -27,7 +27,7 @@ var retweet = function() {
     paramQueryString += queryStringSubQuery()
     var paramResultType = resultType()
     var params = {
-        q: paramQueryString, // TF-8, URL-encoded search query of 500 characters maximum, including operators.
+        q: paramQueryString + paramBlockedStrings(),
         result_type: paramResultType, // mixed, recent, popular
         lang: 'en'
     };
@@ -51,9 +51,7 @@ var retweet = function() {
                     console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString)
                 }
             });
-        }
-
-        else {
+        } else {
             console.log('UNKNOWN SEARCH ERROR...')
         }
     });
@@ -65,7 +63,7 @@ var favoriteTweet = function() {
     paramQueryString += queryStringSubQuery()
     var paramResultType = resultType()
     var params = {
-        q: paramQueryString,
+        q: paramQueryString + paramBlockedStrings(),
         result_type: paramResultType,
         lang: 'en'
     }
@@ -82,8 +80,7 @@ var favoriteTweet = function() {
             }, function(err, response) {
                 if (err) {
                     console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQueryString)
-                }
-                else {
+                } else {
                     console.log('FAVORITED... Success!!!', ' Query String: ' + paramQueryString)
                 }
             })
@@ -120,13 +117,11 @@ function tweetToNewFollower(tweetTxt) {
 
     if (tweetUsername != -1) {
         console.log('Attempted to tweet self! Skipped')
-    }
-    else {
+    } else {
         Twitter.post('statuses/update', tweet, function(err, data, response) {
             if (err) {
                 console.log('Cannot Reply to Follower. ERROR!: ' + err)
-            }
-            else {
+            } else {
                 console.log('Reply to follower. SUCCESS!')
             }
         })
@@ -136,4 +131,14 @@ function tweetToNewFollower(tweetTxt) {
 function getRandomTweet(arr) {
     var index = Math.floor(Math.random() * arr.length)
     return arr[index]
+}
+
+function paramBlockedStrings() {
+    var allBlockedStrings = '',
+        arr = strings.blockedStrings,
+        i, n
+    for (i = 0, n = arr.length; i < n; i++) {
+        allBlockedStrings += ' -' + arr[i];
+    }
+    return allBlockedStrings;
 }
