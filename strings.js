@@ -13,7 +13,7 @@ module.exports = {
         'interesting',
         'really cool',
         'clear night ui',
-        'clear-night-ui'.
+        'clear-night-ui',
         'clear night syntax',
         'clear-night-syntax'
     ],
