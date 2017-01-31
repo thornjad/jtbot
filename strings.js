@@ -7,7 +7,6 @@ module.exports = {
         'atom.io',
         'nodejs',
         'node.js',
-        'kittyhawk',
         'Phantom 3',
         'clear night ui',
         'clear-night-ui',
