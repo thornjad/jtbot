@@ -15,8 +15,8 @@ var resultType = uniqueRandArray(strings.resultType);
 var responseString = uniqueRandArray(strings.responseString);
 
 // main bot function
-retweet;
-favoriteTweet;
+retweet();
+favoriteTweet();
 
 setInterval(retweet, 600000 * retweetFrequencyInMinutes);
 setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes);
@@ -35,22 +35,21 @@ var retweet = function() {
         if (!err) {
             try {
                 var retweetId = data.statuses[0].id_str;
+                Twitter.post('statuses/retweet/:id', {
+                    id: retweetId
+                }, function(err, response) {
+                    if (response) {
+                        console.log('Rewteeted!', ' Query String: ' + paramQueryString);
+                    }
+
+                    if (err) {
+                        console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
+                    }
+                });
             } catch (e) {
                 console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString);
                 return;
             }
-
-            Twitter.post('statuses/retweet/:id', {
-                id: retweetId
-            }, function(err, response) {
-                if (response) {
-                    console.log('RETWEETED!', ' Query String: ' + paramQueryString);
-                }
-
-                if (err) {
-                    console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
-                }
-            });
         } else {
             console.log('UNKNOWN SEARCH ERROR...');
         }
