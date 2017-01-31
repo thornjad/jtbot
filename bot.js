@@ -18,11 +18,11 @@ var responseString = uniqueRandArray(strings.responseString);
 retweet();
 favoriteTweet();
 
-setInterval(retweet, 600000 * retweetFrequencyInMinutes);
-setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes);
+setInterval(retweet, 600 * retweetFrequencyInMinutes); // TODO return to 3000000
+setInterval(favoriteTweet, 600 * favoriteFrequencyInMinutes); // TODO return to 3000000
 
 
-var retweet = function() {
+function retweet() {
     var paramQueryString = queryString();
     paramQueryString += queryStringSubQuery();
     var paramResultType = resultType();
@@ -57,7 +57,7 @@ var retweet = function() {
 }
 
 
-var favoriteTweet = function() {
+function favoriteTweet() {
     var paramQueryString = queryString();
     paramQueryString += queryStringSubQuery();
     var paramResultType = resultType();
