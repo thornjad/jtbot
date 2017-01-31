@@ -1,8 +1,7 @@
-// Dependencies
 var twit = require('twit');
 var uniqueRandArray = require('unique-random-array');
-var config = require('./config');
-var strings = require('./strings');
+var config = require('./config/config');
+var strings = require('./config/strings');
 
 var Twitter = new twit(config);
 
