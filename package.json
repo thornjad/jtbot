@@ -2,7 +2,7 @@
   "name": "jade-bot",
   "version": "1.0.0",
   "description": "twitter bot",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node index.js"
   },
