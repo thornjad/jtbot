@@ -1,31 +1,31 @@
 // Dependencies
-var twit = require('twit')
-var uniqueRandArray = require('unique-random-array')
-var config = require('./config')
-var strings = require('./strings')
+var twit = require('twit');
+var uniqueRandArray = require('unique-random-array');
+var config = require('./config');
+var strings = require('./strings');
 
-var Twitter = new twit(config)
+var Twitter = new twit(config);
 
-var retweetFrequencyInMinutes = 5
-var favoriteFrequencyInMinutes = 5
+var retweetFrequencyInMinutes = 5;
+var favoriteFrequencyInMinutes = 5;
 
-var queryString = uniqueRandArray(strings.queryString)
-var queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery)
-var resultType = uniqueRandArray(strings.resultType)
-var responseString = uniqueRandArray(strings.responseString)
+var queryString = uniqueRandArray(strings.queryString);
+var queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
+var resultType = uniqueRandArray(strings.resultType);
+var responseString = uniqueRandArray(strings.responseString);
 
 // main bot function
-retweet()
-favoriteTweet()
+retweet();
+favoriteTweet();
 
-setInterval(retweet, 600000 * retweetFrequencyInMinutes)
-setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes)
+setInterval(retweet, 600000 * retweetFrequencyInMinutes);
+setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes);
 
 
 var retweet = function() {
-    var paramQueryString = queryString()
-    paramQueryString += queryStringSubQuery()
-    var paramResultType = resultType()
+    var paramQueryString = queryString();
+    paramQueryString += queryStringSubQuery();
+    var paramResultType = resultType();
     var params = {
         q: paramQueryString + paramBlockedStrings(),
         result_type: paramResultType, // mixed, recent, popular
@@ -34,9 +34,9 @@ var retweet = function() {
     Twitter.get('search/tweets', params, function(err, data) {
         if (!err) {
             try {
-                var retweetId = data.statuses[0].id_str
+                var retweetId = data.statuses[0].id_str;
             } catch (e) {
-                console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString)
+                console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString);
                 return;
             }
 
@@ -44,29 +44,29 @@ var retweet = function() {
                 id: retweetId
             }, function(err, response) {
                 if (response) {
-                    console.log('RETWEETED!', ' Query String: ' + paramQueryString)
+                    console.log('RETWEETED!', ' Query String: ' + paramQueryString);
                 }
 
                 if (err) {
-                    console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString)
+                    console.log('RETWEET ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
                 }
             });
         } else {
-            console.log('UNKNOWN SEARCH ERROR...')
+            console.log('UNKNOWN SEARCH ERROR...');
         }
     });
 }
 
 
 var favoriteTweet = function() {
-    var paramQueryString = queryString()
-    paramQueryString += queryStringSubQuery()
-    var paramResultType = resultType()
+    var paramQueryString = queryString();
+    paramQueryString += queryStringSubQuery();
+    var paramResultType = resultType();
     var params = {
         q: paramQueryString + paramBlockedStrings(),
         result_type: paramResultType,
         lang: 'en'
-    }
+    };
 
     // find the tweet
     Twitter.get('search/tweets', params, function(err, data) {
@@ -79,33 +79,30 @@ var favoriteTweet = function() {
                 id: randomTweet.id_str
             }, function(err, response) {
                 if (err) {
-                    console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQueryString)
+                    console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQueryString);
                 } else {
-                    console.log('FAVORITED... Success!!!', ' Query String: ' + paramQueryString)
+                    console.log('FAVORITED... Success!!!', ' Query String: ' + paramQueryString);
                 }
             })
         }
     })
 }
 
+var userStream = Twitter.stream('user');
 
-
-// STREAM API for interacting with a USER =======
-var userStream = Twitter.stream('user')
-
-userStream.on('follow', followed)
+userStream.on('follow', followed);
 
 function followed(event) {
-    console.log('Follow Event now RUNNING')
-    var screenName = event.source.screen_name
+    console.log('Follow Event now RUNNING');
+    var screenName = event.source.screen_name;
 
-    var responseString = responseString()
-    var find = 'screenName'
-    var regex = new RegExp(find, "g")
-    responseString = responseString.replace(regex, screenName)
+    var responseString = responseString();
+    var find = 'screenName';
+    var regex = new RegExp(find, "g");
+    responseString = responseString.replace(regex, screenName);
 
-    console.log(responseString)
-    tweetToNewFollower(responseString)
+    console.log(responseString);
+    tweetToNewFollower(responseString);
 }
 
 function tweetToNewFollower(tweetTxt) {
@@ -113,24 +110,24 @@ function tweetToNewFollower(tweetTxt) {
         status: tweetTxt
     };
 
-    var tweetUsername = tweetTxt.search(/@jmthorntonwhat/i)
+    var tweetUsername = tweetTxt.search(/@jmthorntonwhat/i);
 
     if (tweetUsername != -1) {
-        console.log('Attempted to tweet self! Skipped')
+        console.log('Attempted to tweet self! Skipped');
     } else {
         Twitter.post('statuses/update', tweet, function(err, data, response) {
             if (err) {
-                console.log('Cannot Reply to Follower. ERROR!: ' + err)
+                console.log('Cannot Reply to Follower. ERROR!: ' + err);
             } else {
-                console.log('Reply to follower. SUCCESS!')
+                console.log('Reply to follower. SUCCESS!');
             }
         })
     }
 }
 
 function getRandomTweet(arr) {
-    var index = Math.floor(Math.random() * arr.length)
-    return arr[index]
+    var index = Math.floor(Math.random() * arr.length);
+    return arr[index];
 }
 
 function paramBlockedStrings() {
