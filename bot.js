@@ -18,8 +18,8 @@ var responseString = uniqueRandArray(strings.responseString)
 retweet()
 favoriteTweet()
 
-setInterval(retweet, 60000 * retweetFrequencyInMinutes)
-setInterval(favoriteTweet, 60000 * favoriteFrequencyInMinutes)
+setInterval(retweet, 600000 * retweetFrequencyInMinutes)
+setInterval(favoriteTweet, 600000 * favoriteFrequencyInMinutes)
 
 
 var retweet = function() {
