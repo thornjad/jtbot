@@ -1,13 +1,21 @@
 module.exports = {
     queryString: [
-        '',
-        '',
-        ''
+        'privacy matters',
+        'pardon Snowden',
+        'atom editor',
+        'Phantom 3 Standard',
+        'Phantom 3 Professional',
+        'Phantom 3 Advanced'
     ],
     queryStringSubQuery: [
         '',
-        '',
-        ''
+        'handy tip',
+        'interesting',
+        'really cool',
+        'clear night ui',
+        'clear-night-ui'.
+        'clear night syntax',
+        'clear-night-syntax'
     ],
     resultType: [
         'mixed',
