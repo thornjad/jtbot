@@ -23,43 +23,45 @@ setInterval(favoriteTweet, 600 * favoriteFrequencyInMinutes); // TODO return to 
 
 
 function retweet() {
-    var paramQueryString = queryString();
-    paramQueryString += queryStringSubQuery();
-    var paramResultType = resultType();
-    var params = {
-        q: paramQueryString + paramBlockedStrings(),
-        result_type: paramResultType, // mixed, recent, popular
-        lang: 'en'
-    };
-    Twitter.get('search/tweets', params, function(err, data) {
-        if (!err) {
-            try {
-                var retweetId = data.statuses[0].id_str;
-                Twitter.post('statuses/retweet/:id', {
-                    id: retweetId
-                }, function(err, response) {
-                    if (response) {
-                        console.log('Rewteeted!', ' Query String: ' + paramQueryString);
-                    }
+  var paramQueryString = queryString();
+  paramQueryString += ' ' + queryStringSubQuery();
+  var paramResultType = resultType();
+  var params = {
+      q: paramQueryString + paramBlockedStrings(),
+      result_type: paramResultType, // mixed, recent, popular
+      lang: 'en'
+  };
+  Twitter.get('search/tweets', params, function(err, data) {
 
-                    if (err) {
-                        console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
-                    }
-                });
-            } catch (e) {
-                console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString);
-                return;
-            }
-        } else {
-            console.log('UNKNOWN SEARCH ERROR...');
+    if (err) return callback(err);
+
+    var tweets = data.statuses;
+    var randomTweet = getRandomTweet(tweets);
+
+    try {
+      var retweetId = data.statuses[0].id_str;
+      Twitter.post('statuses/retweet/:id', {
+        id: randomTweet.id_str
+      }, function(err, response) {
+        if (response) {
+          console.log('Rewteeted!', ' Query String: ' + paramQueryString);
         }
-    });
+
+        if (err) {
+          console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
+        }
+      });
+    } catch (e) {
+      console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString);
+      return;
+    }
+  });
 }
 
 
 function favoriteTweet() {
     var paramQueryString = queryString();
-    paramQueryString += queryStringSubQuery();
+    paramQueryString += ' ' + queryStringSubQuery();
     var paramResultType = resultType();
     var params = {
         q: paramQueryString + paramBlockedStrings(),
@@ -78,7 +80,7 @@ function favoriteTweet() {
                 id: randomTweet.id_str
             }, function(err, response) {
                 if (err) {
-                    console.log('CANNOT BE FAVORITE... Error: ', err, ' Query String: ' + paramQueryString);
+                    console.log('Favorite ERROR: CANNOT BE FAVORITE: ', err, ' Query String: ' + paramQueryString);
                 } else {
                     console.log('FAVORITED... Success!!!', ' Query String: ' + paramQueryString);
                 }
