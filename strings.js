@@ -3,19 +3,21 @@ module.exports = {
         'privacy matters',
         'pardon Snowden',
         'atom editor',
-        'Phantom 3 Standard',
-        'Phantom 3 Professional',
-        'Phantom 3 Advanced'
+        'Phantom 3',
+        'clear night ui',
+        'clear-night-ui',
+        'clear night syntax',
+        'clear-night-syntax',
+        'started freecodecamp'
     ],
     queryStringSubQuery: [
+        '',
+        '',
         '',
         'handy tip',
         'interesting',
         'really cool',
-        'clear night ui',
-        'clear-night-ui',
-        'clear night syntax',
-        'clear-night-syntax'
+        'just discovered'
     ],
     blockedStrings: [
         'porn',
@@ -23,7 +25,10 @@ module.exports = {
         'nude',
         'nudity',
         'fuck',
-        'fucking'
+        'fucking',
+        'Trump',
+        'Hillary',
+        'immigration'
     ],
     resultType: [
         'mixed',
@@ -31,13 +36,13 @@ module.exports = {
         'popular'
     ],
     responseString: [
-        'Hi @screenName thanks for the follow! !CR',
-        '@screenName thanks for following! !CR',
-        'Hey @screenName thanks for the follow! !CR',
-        'Thanks for following @screenName! !CR',
-        'Hey @screenName, thanks for following! !CR',
-        'Awesome @screenName, thanks for following! !CR',
-        'Thanks for the follow @screenName! !CR',
-        'Thanks for following @screenName! How are you today? !CR'
+        'Hi @screenName thanks for the follow!',
+        '@screenName thanks for following!',
+        'Hey @screenName thanks for the follow!',
+        'Thanks for following @screenName!',
+        'Hey @screenName, thanks for following!',
+        'Awesome @screenName, thanks for following!',
+        'Thanks for the follow @screenName!',
+        'Thanks for following @screenName! How are you today?'
     ]
 };
