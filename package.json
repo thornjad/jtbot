@@ -4,7 +4,7 @@
   "description": "twitter bot",
   "main": "bot.js",
   "scripts": {
-    "start": "node ./src/bot.js"
+    "start": "node ./lib/bot.js"
   },
   "author": "Jade Thornton",
   "license": "MIT",
