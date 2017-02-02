@@ -1,7 +1,6 @@
 module.exports = {
     queryString: [
         'privacy matters',
-        'pardon Snowden',
         'atom editor',
         'atomio',
         'atom.io',
