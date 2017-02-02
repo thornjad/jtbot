@@ -35,3 +35,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Dev API files
+lib/config/devtwitconfig.js
+lib/config/devsentimentconfig.js
