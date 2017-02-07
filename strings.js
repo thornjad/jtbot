@@ -6,17 +6,9 @@ module.exports = {
         'atom.io',
         'nodejs',
         'node.js',
-        'Phantom 3 photo',
-        'clear night ui',
-        'clear-night-ui',
-        'clear night syntax',
-        'clear-night-syntax',
-        'started freecodecamp',
-        'Linus Torvalds',
-        'OnePlus 4'
+        'Linus Torvalds'
     ],
     queryStringSubQuery: [
-        '',
         '',
         '',
         'handy tip',
@@ -33,7 +25,11 @@ module.exports = {
         'fucking',
         'Trump',
         'Hillary',
-        'immigration'
+        'immigration',
+        'hate',
+        'worst',
+        'damn',
+        'hell'
     ],
     resultType: [
         'mixed',
