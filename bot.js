@@ -6,8 +6,8 @@ var strings = require('./strings');
 
 var Twitter = new twit(config);
 
-var retweetFrequencyInMinutes = 5;
-var favoriteFrequencyInMinutes = 5;
+var retweetFrequencyInMinutes = 45;
+var favoriteFrequencyInMinutes = 45;
 
 var queryString = uniqueRandArray(strings.queryString);
 var queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
