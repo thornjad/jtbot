@@ -32,7 +32,9 @@ module.exports = {
         'damn',
         'hell',
         'DonaldTrump',
-        'PresidentTrump'
+        'PresidentTrump',
+        'overrated',
+        'overhyped'
     ],
     resultType: [
         'mixed',
