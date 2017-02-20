@@ -6,7 +6,8 @@ module.exports = {
         'atom.io',
         'nodejs',
         'node.js',
-        'Linus Torvalds'
+        'Linus Torvalds',
+        'rust lanugage'
     ],
     queryStringSubQuery: [
         '',
@@ -29,7 +30,9 @@ module.exports = {
         'hate',
         'worst',
         'damn',
-        'hell'
+        'hell',
+        'DonaldTrump',
+        'PresidentTrump'
     ],
     resultType: [
         'mixed',
