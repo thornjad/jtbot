@@ -1,18 +1,17 @@
-// Dependencies
-var twit = require('twit');
-var uniqueRandArray = require('unique-random-array');
-var config = require('./config');
-var strings = require('./strings');
+const Twit = require('twit');
+const uniqueRandArray = require('unique-random-array');
+const config = require('./config');
+const strings = require('./strings');
 
-var Twitter = new twit(config);
+const bot = new Twit(config);
 
-var retweetFrequencyInMinutes = 45;
-var favoriteFrequencyInMinutes = 45;
+const retweetFrequencyInMinutes = 45;
+const favoriteFrequencyInMinutes = 45;
 
-var queryString = uniqueRandArray(strings.queryString);
-var queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
-var resultType = uniqueRandArray(strings.resultType);
-var responseString = uniqueRandArray(strings.responseString);
+const queryString = uniqueRandArray(strings.queryString);
+const queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
+const resultType = uniqueRandArray(strings.resultType);
+const responseString = uniqueRandArray(strings.responseString);
 
 // main bot function
 retweet();
@@ -31,7 +30,7 @@ function retweet() {
       result_type: paramResultType, // mixed, recent, popular
       lang: 'en'
   };
-  Twitter.get('search/tweets', params, function(err, data) {
+  bot.get('search/tweets', params, function(err, data) {
 
     if (err) return callback(err);
 
@@ -40,7 +39,7 @@ function retweet() {
 
     try {
       var retweetId = data.statuses[0].id_str;
-      Twitter.post('statuses/retweet/:id', {
+      bot.post('statuses/retweet/:id', {
         id: randomTweet.id_str
       }, function(err, response) {
         if (response) {
@@ -70,13 +69,13 @@ function favoriteTweet() {
     };
 
     // find the tweet
-    Twitter.get('search/tweets', params, function(err, data) {
+    bot.get('search/tweets', params, function(err, data) {
 
         var tweet = data.statuses;
         var randomTweet = getRandomTweet(tweet);
 
         if (typeof randomTweet != 'undefined') {
-            Twitter.post('favorites/create', {
+            bot.post('favorites/create', {
                 id: randomTweet.id_str
             }, function(err, response) {
                 if (err) {
@@ -89,7 +88,7 @@ function favoriteTweet() {
     })
 }
 
-var userStream = Twitter.stream('user');
+var userStream = bot.stream('user');
 
 userStream.on('follow', followed);
 
@@ -116,7 +115,7 @@ function tweetToNewFollower(tweetTxt) {
     if (tweetUsername != -1) {
         console.log('Attempted to tweet self! Skipped');
     } else {
-        Twitter.post('statuses/update', tweet, function(err, data, response) {
+        bot.post('statuses/update', tweet, function(err, data, response) {
             if (err) {
                 console.log('Cannot Reply to Follower. ERROR!: ' + err);
             } else {
