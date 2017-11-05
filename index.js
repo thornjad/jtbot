@@ -1,1 +1,1 @@
-require('./lib/bot');
+require('./lib/bot').run();

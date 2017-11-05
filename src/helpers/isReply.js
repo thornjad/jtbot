@@ -1,4 +1,6 @@
-const isReply = (tweet) =>
+// @flow
+
+const isReply = (tweet: Object): boolean =>
     /^RT/i.test(tweet.text) ||
     tweet.is_quote_status ||
     tweet.retweeted_status ||
