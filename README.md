@@ -11,15 +11,13 @@ This doesn't mean there's never a human behind my Twitter account, just some of 
 ### Set up the bot
 
 ```bash
-$ git clone https://github.com/raindeer44/jade-bot
+$ git clone <https://github.com/Raindeer44/jade-bot.git>
 $ cd jade-bot/
-$ npm install
-$ git update-index --assume-unchanged .env
+$ yarn
+$ yarn test
 ```
 
 ### Get API keys
-
-For the `SENTIMENT_KEY` you can get a new key at <https://market.mashape.com/vivekn/sentiment-3>. Your key is in the `REQUEST EXAMPLE`. Add this to the `.env` file.
 
 Set up an application on the Twitter account you want to use: [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new). Add to the `.env` file:
 
@@ -28,7 +26,7 @@ Set up an application on the Twitter account you want to use: [https://apps.twit
 * Access Token
 * Access Token Secret
 
-`.env` also need your Twitter username and the rate at which you want the bot to retweet and favorite (in minutes).
+`.env` also needs the rate at which you want the bot to retweet (in minutes).
 
 For example, `.env` might look something like
 
@@ -37,10 +35,8 @@ CONSUMER_KEY=Fw***********P9
 CONSUMER_SECRET=TD************Cq
 ACCESS_TOKEN=31**************UC
 ACCESS_TOKEN_SECRET=r0************S2
-SENTIMENT_KEY=Gj************lF
-TWITTER_USERNAME=jmthorntonwhat
+
 TWITTER_RETWEET_RATE=30
-TWITTER_FAVORITE_RATE=30
 ```
 
 ### Start the bot
@@ -48,10 +44,10 @@ TWITTER_FAVORITE_RATE=30
 That's all the set up! Now just run
 
 ```bash
-$ npm start
+$ yarn start
 ```
 
-For continuous usage, either run on a server (if you happen to have one lying around) or deploy to Heroku or a similar service.
+For continuous usage, either run on a server (if you happen to have one lying around) or deploy to Heroku, a serverless architecture or a similar service.
 
 ## Contributing
 Please fork this repository and contribute back using pull requests.

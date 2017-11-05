@@ -14,6 +14,7 @@
   "author": "Jade M Thornton",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "snyk": "^1.47.0",
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"

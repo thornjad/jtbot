@@ -1,7 +1,6 @@
 const retweet = require('./retweet');
-
-const retweetFrequencyInMinutes = 45;
+const config = require('./config');
 
 // main function -- retweet cool tweets
 retweet();
-setInterval(retweet, 3000000 * retweetFrequencyInMinutes);
+setInterval(retweet, 3000000 * config.retweet_rate);
