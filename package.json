@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "build": "babel src/ -d lib/",
-    "flow": "node_modules/flow-bin/vendor/flow"
+    "flow": "node_modules/flow-bin/vendor/flow",
+    "test": "node_modules/snyk/cli/index.js test && node index.js"
   },
   "author": "Jade M Thornton",
   "license": "MIT",
