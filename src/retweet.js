@@ -1,20 +1,21 @@
 const Twit = require('twit');
-const strings = require('./strings');
 const uniqueRandArray = require('unique-random-array');
+const strings = require('./strings');
+const config = require('./config');
+const isReply = require('./helpers/isReply');
 
-const bot = new Twit(config);
+const bot = new Twit(config.keys);
 
 const queryString = uniqueRandArray(strings.queryString);
 const queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
 const resultType = uniqueRandArray(strings.resultType);
 const responseString = uniqueRandArray(strings.responseString);
 
-function retweet() {
-  var paramQueryString = queryString();
-  paramQueryString += ' ' + queryStringSubQuery();
+const retweet = () => {
+  const query = queryString();
   var paramResultType = resultType();
   var params = {
-      q: paramQueryString + paramBlockedStrings(),
+      q: query + paramBlockedStrings(),
       result_type: paramResultType, // mixed, recent, popular
       lang: 'en'
   };
@@ -31,15 +32,15 @@ function retweet() {
         id: randomTweet.id_str
       }, function(err, response) {
         if (response) {
-          console.log('Rewteeted!', ' Query String: ' + paramQueryString);
+          console.log('Rewteeted!', ' Query String: ' + query);
         }
 
         if (err) {
-          console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + paramQueryString);
+          console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + query);
         }
       });
     } catch (e) {
-      console.log('retweetId ERROR! ', e.message, ' Query String: ' + paramQueryString);
+      console.log('retweetId ERROR! ', e.message, ' Query String: ' + query);
       return;
     }
   });

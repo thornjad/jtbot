@@ -8,15 +8,7 @@ module.exports = {
         'node.js',
         'Linus Torvalds',
         'rust lanugage'
-    ],
-    queryStringSubQuery: [
-        '',
-        '',
-        'handy tip',
-        'interesting',
-        'really cool',
-        'just discovered'
-    ],
+    ]
     blockedStrings: [
         'porn',
         'sex',
