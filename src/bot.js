@@ -1,4 +1,3 @@
-const config = require('./config');
 const retweet = require('./retweet');
 
 const retweetFrequencyInMinutes = 45;
