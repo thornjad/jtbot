@@ -6,13 +6,13 @@
   "scripts": {
     "start": "node lib/bot.js",
     "build": "babel src/ -d lib/",
-    "flow": "node_modules/flow-bin/vendor/flow",
-    "prepublish": "yarn run build"
+    "flow": "node_modules/flow-bin/vendor/flow"
   },
   "author": "Jade M Thornton",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "snyk": "^1.47.0",
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"
   },
