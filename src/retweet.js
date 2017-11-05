@@ -13,50 +13,58 @@ const responseString = uniqueRandArray(strings.responseString);
 
 const retweet = () => {
   const query = queryString();
-  var paramResultType = resultType();
-  var params = {
-      q: query + paramBlockedStrings(),
+
+  bot.get(
+    'search/tweets', // api
+    { // params
+      q: query + getBlockedStrings(),
       result_type: paramResultType, // mixed, recent, popular
       lang: 'en'
-  };
-  bot.get('search/tweets', params, function(err, data) {
-
-    if (err) return callback(err);
-
-    var tweets = data.statuses;
-    var randomTweet = getRandomTweet(tweets);
-
-    try {
-      var retweetId = data.statuses[0].id_str;
-      bot.post('statuses/retweet/:id', {
-        id: randomTweet.id_str
-      }, function(err, response) {
-        if (response) {
-          console.log('Rewteeted!', ' Query String: ' + query);
-        }
-
+    },
+    (err, data, response) => { // callback
+      try {
         if (err) {
-          console.log('Retweet ERROR! Duplication maybe...: ', err, ' Query String: ' + query);
+          console.error(`ERR: Cannot search tweet!`);
+          throw err;
+        } else {
+          const r = rando(data.statuses.length);
+
+          if (!isReply(data.statuses[r])) {
+            let retweetId = data.statuses[r].id_str;
+
+            bot.post(
+              'statuses/retweet/:id',
+              {
+                id: retweetId
+              }, (err, response) => {
+                if (err) {
+                  console.error('Unable to retweet');
+                  throw err;
+                } else if (response) {
+                  console.log(`
+                      SUCCESS: RT: ${data.statuses[r].text}\nRANDO ID: ${r}
+                    `);
+                }
+              }
+            );
+          }
         }
-      });
-    } catch (e) {
-      console.log('retweetId ERROR! ', e.message, ' Query String: ' + query);
-      return;
+      } catch (e) {
+        console.error(e);
+      }
     }
-  });
+  );
 }
 
-function getRandomTweet(arr) {
-    var index = Math.floor(Math.random() * arr.length);
-    return arr[index];
+const rando = (arr) => {
+  const i = Math.floor(Math.random() * arr.length);
+  return arr[i];
 }
 
-function paramBlockedStrings() {
-    var allBlockedStrings = '',
-        arr = strings.blockedStrings,
-        i, n
-    for (i = 0, n = arr.length; i < n; i++) {
-        allBlockedStrings += ' -' + arr[i];
-    }
-    return allBlockedStrings;
+const getBlockedStrings = () => {
+  let blocked = '';
+  for (let term of strings.blockedStrings) {
+    blocked += ` -${term}`;
+  }
+  return blocked;
 }
