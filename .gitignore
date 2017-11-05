@@ -39,3 +39,6 @@ jspm_packages
 # Dev API files
 lib/config/devtwitconfig.js
 lib/config/devsentimentconfig.js
+
+# environment settings
+*.env
