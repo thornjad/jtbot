@@ -9,10 +9,14 @@
   "author": "Jade M Thornton",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0"
+  },
   "repository": "git+https://github.com/Raindeer44/jade-bot.git",
   "bugs": {
     "url": "https://github.com/Raindeer44/jade-bot/issues"
