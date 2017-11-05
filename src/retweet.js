@@ -68,3 +68,5 @@ const getBlockedStrings = () => {
   }
   return blocked;
 }
+
+module.exports = retweet;
