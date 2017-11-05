@@ -15,7 +15,6 @@ const responseString = uniqueRandArray(strings.responseString);
 
 // main bot function
 retweet();
-favoriteTweet();
 
 setInterval(retweet, 3000000 * retweetFrequencyInMinutes);
 setInterval(favoriteTweet, 3000000 * favoriteFrequencyInMinutes);
@@ -55,37 +54,6 @@ function retweet() {
       return;
     }
   });
-}
-
-
-function favoriteTweet() {
-    var paramQueryString = queryString();
-    paramQueryString += ' ' + queryStringSubQuery();
-    var paramResultType = resultType();
-    var params = {
-        q: paramQueryString + paramBlockedStrings(),
-        result_type: paramResultType,
-        lang: 'en'
-    };
-
-    // find the tweet
-    bot.get('search/tweets', params, function(err, data) {
-
-        var tweet = data.statuses;
-        var randomTweet = getRandomTweet(tweet);
-
-        if (typeof randomTweet != 'undefined') {
-            bot.post('favorites/create', {
-                id: randomTweet.id_str
-            }, function(err, response) {
-                if (err) {
-                    console.log('Favorite ERROR: CANNOT BE FAVORITE: ', err, ' Query String: ' + paramQueryString);
-                } else {
-                    console.log('FAVORITED... Success!!!', ' Query String: ' + paramQueryString);
-                }
-            })
-        }
-    })
 }
 
 var userStream = bot.stream('user');
