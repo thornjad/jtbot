@@ -25,7 +25,7 @@ module.exports = {
         'quadcopter',
         'AirMap',
         'DuckDuckGo'
-    ]
+    ],
     blockedStrings: [
         'porn',
         'sex',
