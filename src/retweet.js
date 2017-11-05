@@ -6,7 +6,7 @@ const strings = require('./strings');
 const config = require('./config');
 const isReply = require('./helpers/isReply');
 
-const bot = new Twit(config.keys);
+const bot = new Twit(config);
 
 const queryString = uniqueRandArray(strings.queryString);
 const queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
