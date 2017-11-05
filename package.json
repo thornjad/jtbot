@@ -1,27 +1,19 @@
 {
   "name": "jade-bot",
   "version": "1.1.4",
-  "description": "twitter bot",
-  "main": "bot.js",
+  "description": "A Twitter retweet and favorite bot",
+  "main": "lib/bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "test": "mocha"
+    "start": "node bot.js"
   },
-  "author": "Jade Thornton",
+  "author": "Jade M Thornton",
   "license": "MIT",
   "dependencies": {
     "twit": "^2.2.5",
     "unique-random-array": "^1.0.0"
   },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "jshint": "^2.9.4",
-    "mocha": "^3.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Raindeer44/jade-bot.git"
-  },
+  "devDependencies": {},
+  "repository": "git+https://github.com/Raindeer44/jade-bot.git",
   "bugs": {
     "url": "https://github.com/Raindeer44/jade-bot/issues"
   },
