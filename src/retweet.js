@@ -9,9 +9,7 @@ const isReply = require('./helpers/isReply');
 const bot = new Twit(config);
 
 const queryString = uniqueRandArray(strings.queryString);
-const queryStringSubQuery = uniqueRandArray(strings.queryStringSubQuery);
 const resultType = uniqueRandArray(strings.resultType);
-const responseString = uniqueRandArray(strings.responseString);
 
 const retweet = (): void => {
   const query: string = queryString();
