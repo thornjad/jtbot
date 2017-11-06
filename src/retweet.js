@@ -31,7 +31,8 @@ const retweet = (): void => {
         }
 
         if (data.statuses.length < 1) {
-          console.log(`Query did not return any results:\n${query}`);
+          console.log(`Query did not return any results:`);
+          console.log(data.search_metadata);
         } else {
           const r: number = rando(data.statuses.length);
           if (!isReply(data.statuses[r])) {

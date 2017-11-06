@@ -27,18 +27,12 @@ module.exports = {
         'DuckDuckGo'
     ],
     blockedStrings: [
-        'Trump',
-        'Hillary',
-        'immigration',
         'hate',
         'worst',
         'don\'t like',
-        'hell',
-        'DonaldTrump',
-        'PresidentTrump',
+        'Trump',
         'overrated',
-        'overhyped',
-        'only nation'
+        'overhyped'
     ],
     resultType: [
         'mixed',
