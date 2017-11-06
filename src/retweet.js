@@ -17,9 +17,12 @@ const retweet = (): void => {
   bot.get(
     'search/tweets', // api
     { // params
-      q: query + getBlockedStrings(),
-      result_type: resultType(), // mixed, recent, popular
-      lang: 'en'
+      // q: query + getBlockedStrings(),
+      q: 'Twitter',
+      result_type: resultType(), // mixed, recent, popular,
+      filter: 'safe',
+      lang: 'en',
+      count: config.search_count
     },
     (err, data, response) => { // callback
       try {
@@ -28,8 +31,8 @@ const retweet = (): void => {
           throw err;
         } else {
           const r: number = rando(data.statuses.length);
-
           if (!isReply(data.statuses[r])) {
+            console.log(data.statuses[r]);
             const retweetId: string = data.statuses[r].id_str;
 
             bot.post(
@@ -47,18 +50,21 @@ const retweet = (): void => {
                 }
               }
             );
+          } else {
+            console.log('Tweet was a reply, skipping retweet');
           }
         }
       } catch (e) {
         console.error(e);
+      } finally {
+        console.log('Retweet run completed, waiting for next');
       }
     }
   );
 }
 
-const rando = (arr: Array<*>): number => {
-  const i: number = Math.floor(Math.random() * arr.length);
-  return arr[i];
+const rando = (len: number): number => {
+  return Math.floor(Math.random() * len);
 }
 
 const getBlockedStrings = (): string => {

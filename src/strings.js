@@ -27,23 +27,15 @@ module.exports = {
         'DuckDuckGo'
     ],
     blockedStrings: [
-        'porn',
-        'sex',
-        'nude',
-        'nudity',
-        'fuck',
-        'fucking',
         'Trump',
         'Hillary',
         'immigration',
         'hate',
         'worst',
         'don\'t like',
-        'damn',
         'hell',
         'DonaldTrump',
         'PresidentTrump',
-        'Trump',
         'overrated',
         'overhyped'
     ],

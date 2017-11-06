@@ -5,3 +5,5 @@ const run = (): void => {
   retweet();
   setInterval(retweet, 3000000 * config.retweet_rate);
 }
+
+module.exports = run;
