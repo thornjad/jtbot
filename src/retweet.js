@@ -21,8 +21,7 @@ const retweet = (): void => {
       result_type: resultType(), // mixed, recent, popular,
       filter: 'safe',
       lang: 'en',
-      count: config.search_count,
-      consumer_key: config.consumer_key
+      count: config.search_count
     },
     (err, data, response) => { // callback
       try {
