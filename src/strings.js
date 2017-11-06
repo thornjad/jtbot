@@ -21,7 +21,7 @@ module.exports = {
         'atom.io',
         'nodejs',
         'node.js',
-        'DJI',
+        'DJI Phantom',
         'quadcopter',
         'AirMap',
         'DuckDuckGo'
@@ -37,7 +37,8 @@ module.exports = {
         'DonaldTrump',
         'PresidentTrump',
         'overrated',
-        'overhyped'
+        'overhyped',
+        'only nation'
     ],
     resultType: [
         'mixed',
