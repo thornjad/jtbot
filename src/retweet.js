@@ -27,7 +27,7 @@ const retweet = (): void => {
       try {
         if (err) {
           console.error(`ERR: Cannot search ${query}`);
-          throw err;
+          console.error(err);
         }
 
         if (data.statuses.length < 1) {
@@ -44,7 +44,7 @@ const retweet = (): void => {
               (err, response) => {
                 if (err) {
                   console.error('Unable to retweet');
-                  throw err;
+                  console.error(err);
                 } else if (response) {
                   console.log(`SUCCESS: RT: ${data.statuses[r].text}\nRANDO ID: ${r}\n`);
                 } else {
@@ -59,7 +59,7 @@ const retweet = (): void => {
       } catch (e) {
         console.error(e);
       } finally {
-        console.log('Retweet run done, waiting for next');
+        console.log('Retweet run cycle done, waiting for next');
       }
     }
   );
