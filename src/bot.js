@@ -6,4 +6,12 @@ const run = (): void => {
   setInterval(retweet, 3000000 * config.retweet_rate);
 }
 
-module.exports = run;
+const test = (): void => {
+  // same as run, but only a single run cycle
+  retweet();
+}
+
+module.exports = {
+  run: run,
+  test, test
+}
