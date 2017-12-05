@@ -13,8 +13,14 @@ This doesn't mean there's never a human behind my Twitter account, just some of 
 ```bash
 $ git clone <https://github.com/Raindeer44/jade-bot.git>
 $ cd jade-bot/
-$ yarn
-$ yarn test
+$ npm
+$ npm test
+```
+
+Jade-bot is also available on npm:
+
+```bash
+npm install --global jade-bot
 ```
 
 ### Get API keys
@@ -44,7 +50,7 @@ TWITTER_RETWEET_RATE=30
 That's all the set up! Now just run
 
 ```bash
-$ yarn start
+$ npm start
 ```
 
 For continuous usage, either run on a server (if you happen to have one lying around) or deploy to Heroku, a serverless architecture or a similar service.
