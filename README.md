@@ -1,5 +1,7 @@
 # Jade-Bot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Raindeer44/jade-bot.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/Raindeer44/jade-bot.svg?branch=master)](https://travis-ci.org/Raindeer44/jade-bot) [![Known Vulnerabilities](https://snyk.io/test/github/raindeer44/jade-bot/badge.svg)](https://snyk.io/test/github/raindeer44/jade-bot) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Raindeer44/jade-bot/master/LICENSE)
 
 Jade-bot is a Node-based Twitter bot which automates the process of Twittering for [@jmthorntonwhat](https://twitter.com/jmthorntonwhat).
