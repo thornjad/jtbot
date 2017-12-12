@@ -11,7 +11,7 @@ This doesn't mean there's never a human behind my Twitter account, just some of 
 ### Set up the bot
 
 ```bash
-$ git clone <https://github.com/Raindeer44/jade-bot.git>
+$ git clone https://github.com/Raindeer44/jade-bot.git
 $ cd jade-bot/
 $ npm
 $ npm test
@@ -20,7 +20,7 @@ $ npm test
 Jade-bot is also available on npm:
 
 ```bash
-npm install --global jade-bot
+npm install -g jade-bot
 ```
 
 ### Get API keys
