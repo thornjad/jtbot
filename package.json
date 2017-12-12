@@ -1,5 +1,5 @@
 {
-  "name": "jade-bot",
+  "name": "jtb",
   "version": "2.0.3",
   "description": "A Twitter retweet and favorite bot",
   "main": "index.js",
@@ -24,9 +24,9 @@
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0"
   },
-  "repository": "git+https://github.com/Raindeer44/jade-bot.git",
+  "repository": "git+https://github.com/Raindeer44/jtbot.git",
   "bugs": {
-    "url": "https://github.com/Raindeer44/jade-bot/issues"
+    "url": "https://github.com/Raindeer44/jtbot/issues"
   },
-  "homepage": "https://github.com/Raindeer44/jade-bot#readme"
+  "homepage": "https://github.com/Raindeer44/jtbot#readme"
 }
