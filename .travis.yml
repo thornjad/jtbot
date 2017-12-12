@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - "8"
+  - 9
+  - 8
+before_install:
+  - npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
 after_success:
-    - snyk monitor
+  - snyk monitor
 after_deploy:
-    - snyk monitor
+  - snyk monitor
+env:
+  global:
+    secure: WY445OM+TM0/YGm6LM2jE+npSmpBXSaVHU7z59eZqSU5fmQx2dddpMvSCsJmmNJVjROcrxfB+kujOQR7ibN6smWk3KDO+zNLu4XuahYa3pMqFktpCUjv1fy3Zw/cYmaEORj2bjgtKFWbs+9K/fNRPB7bOCsHwFC7Hf6uv82rxYUBKsmyymJVmeaVv//YGdMYWaRcfh7ySZtW3d+qsfXdOt65V4ovBgLzCpfOHXeBe2FL7Av5ps3FC997eqNkUsjY5HYIvg7mX8VE0P++HaPoFfykXlcEYQlP9NOjwce0Z6Cv2TC4lYEflkuPRR4IA9PgPzLD18Nm7ekbsV1tz26hqPEeVWSQ/tPB6fs3M3svOZp0V+fAc7wj/H/URuaGrstIvQuLjLW2MAM8K1FztQn8nIowfFccAS9VlkCDMNtrfzV+e6RzSqKsjk0LHr0F4c2tYDCZPXdwqVZeUYbSUKRiOkSnWYOwP1TRBG0dt0mwjAk19kWVCFnme6CsGX89nqpWCwdatOkoCIweA/PsWRjenc1GPwvKf9uGV6xpzlKLt/L3jkfTkkZY6vzvtgL3wqSujqy+VUeYT2UWO01sTQ+1FtvE9qDBcHIVDkmyvenX0y5/l7OYmI74Dqs7PsC8R+Koc9wlbR0jkZSraU1TnVHMpoYwcipc9coXfnVnKHmEtgo=
