@@ -8,8 +8,7 @@
     "compile": "babel src/ -d lib/",
     "flow": "flow",
     "test": "npm run compile && snyk test && node test.js",
-    "protect": "snyk protect --yes",
-    "prepare": "npm run protect"
+    "protect": "snyk protect --yes"
   },
   "author": "Jade M Thornton",
   "license": "ISC",
