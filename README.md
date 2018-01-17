@@ -25,7 +25,7 @@ npm install -g jtbot
 
 ### Get API keys
 
-Set up application keys for the Twitter account you want to use: [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new). Add to the `.env` file:
+Set up application keys for the Twitter account you want to use: [https://apps.twitter.com/app/new](https://apps.twitter.com/app/new). Create a file called `.env` (with the dot) and put these keys in it:
 
 * Consumer Key (API Key)
 * Consumer Secret (API Secret)
