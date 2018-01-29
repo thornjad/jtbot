@@ -13,7 +13,7 @@
   "author": "Jade M Thornton",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "flow-bin": "^0.64.0",
     "snyk": "^1.56.0",
     "twit": "^2.2.9",
