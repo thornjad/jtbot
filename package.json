@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^5.0.0",
-    "flow-bin": "^0.67.1",
+    "flow-bin": "^0.68.0",
     "snyk": "^1.56.0",
     "twit": "^2.2.9",
     "unique-random-array": "^1.0.0"
