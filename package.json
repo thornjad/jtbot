@@ -14,7 +14,7 @@
   "author": "Jade M Thornton",
   "license": "ISC",
   "dependencies": {
-    "flow-bin": "^0.76.0",
+    "flow-bin": "^0.77.0",
     "dotenv": "^6.0.0",
     "snyk": "^1.56.0",
     "twit": "^2.2.9",
